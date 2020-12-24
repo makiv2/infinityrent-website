@@ -1,18 +1,14 @@
-.icon-size {
-    font-size: 65px;
-    vertical-align: sub;
+.icon {
+  height: 96px;
+  width: 96px;
+  font-size: 96px;
 }
 
-.box {
-    background-color: red;
-    width: 100%;
-    height: 65px;
+p {
+    font-family: Russo, sans-serif;
+    font-size: 20px;
 }
 
-  .align-bar {
-      flex: 1;
-      display: flex;
-      justify-content: space-between;
-  }
-
-
+.category-bar {
+    margin-top: 24px;
+}
