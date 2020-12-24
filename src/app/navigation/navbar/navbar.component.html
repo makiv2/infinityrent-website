@@ -1,6 +1,47 @@
-<p>
-  <mat-toolbar color="primary">
-    <span>Infinity Rent</span>
-    <span class="example-spacer"></span>
-  </mat-toolbar>
-</p>
+<mat-toolbar class="mat-elevation-z6 toolbar">
+    <div class="align-navbar">
+
+
+      <div>
+        <a [routerLink]="'/'">
+        <button mat-button>
+          <img src="/assets/img/logowithcolor.png" alt="image">
+        </button>
+        </a>
+      </div>
+
+      <div>
+        <div class="md-form mt-0">
+          <input class="form-control search-bar" type="text" placeholder="Search">
+        </div>
+      </div>
+
+      <div>
+        <button mat-button>
+          <mat-icon>bookmark</mat-icon>
+        </button>
+
+
+        <button mat-button>
+          <mat-icon>add</mat-icon>
+        </button>
+
+        <button mat-button>
+          <mat-icon>notifications</mat-icon>
+        </button>
+
+        <button mat-button>
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+
+        <button mat-mini-fab color="white" class="profile-button">
+          <mat-icon>person</mat-icon>
+        </button>
+      </div>
+
+
+
+
+
+    </div>
+</mat-toolbar>

@@ -1,3 +1,45 @@
-.example-spacer {
-  flex: 1 1 auto;
+.toolbar{
+  background:#161b22;
+  color: white;
+  max-height: 61px;
+  min-height: 61px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+
+ }
+
+ .font {
+   font-family: 'Russo', sans-serif;
+   font-size: 20px;
+ }
+
+ .search-bar {
+   margin-top: 24px;
+   color: rgb(226, 226, 226);
+   font-family: "Russo", sans-serif;
+   width: 555px;
+ }
+
+.align-navbar {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.profile-button {
+  margin-left: 40px;
+  margin-right:20px;
+}
+
+
+
+
+.icon-text {
+  font-size: 500px;
+  display: flex;
+  align-items: center;
+}
+

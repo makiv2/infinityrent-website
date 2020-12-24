@@ -1,4 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+    font-family: "Bungee";
+    src: local("Bungee"), url(./assets/fonts/Bungee-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Russo";
+    src: local("Russo"), url(./assets/fonts/RussoOne-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Fredoka";
+    src: local("Fredoka"), url(./assets/fonts/FredokaOne-Regular.ttf) format("truetype");
+}
+
+
+html, body { height: 100%; width: 100%; }
+body { margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: whitesmoke;
+    }
+
+button:focus, button:active:focus, button.active:focus {
+    outline: none !important;
+    outline-style: none !important;
+    }
