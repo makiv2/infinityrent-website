@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
+import { JwtToken } from '../model/jwt-token.model';
 
-const TOKEN_KEY = 'auth-token';
+const TOKEN_KEY = 'acces_token';
 const USER_KEY = 'auth-user';
 
 @Injectable({
@@ -8,9 +10,7 @@ const USER_KEY = 'auth-user';
 })
 export class TokenStorageService {
 
-  constructor() { }
-
-  signOut(): void {
+  public signOut(): void {
     localStorage.removeItem(TOKEN_KEY); 
   }
 
@@ -28,7 +28,14 @@ export class TokenStorageService {
     localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
-  public getUser(): any {
+  public isLoggedIn(): boolean {
+    const user: JwtToken = this.getUser()
+    if(user)
+      return moment().isBefore(moment(user.exp));
+    return false;
+  }
+
+  public getUser(): JwtToken {
     const user = localStorage.getItem(USER_KEY);
     if (user) {
       return JSON.parse(user);
