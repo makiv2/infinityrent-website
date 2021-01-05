@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
-  { path: '**',   redirectTo: '', pathMatch: 'full' }, // redirect to `first-component`
+  { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule)},
+  { path: '**',   redirectTo: '', pathMatch: 'full' } // redirect to `first-component`
   // { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];
 

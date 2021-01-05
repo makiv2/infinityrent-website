@@ -1,5 +1,5 @@
-.toolbar{
-  background:#161b22;
+.toolbar {
+  background: #161b22;
   color: white;
   max-height: 61px;
   min-height: 61px;
@@ -7,20 +7,23 @@
   position: -webkit-sticky;
   top: 0;
   z-index: 1000;
+}
 
- }
+a {
+  color: grey;
+}
 
- .font {
-   font-family: 'Russo', sans-serif;
-   font-size: 20px;
- }
+.font {
+  font-family: "Russo", sans-serif;
+  font-size: 20px;
+}
 
- .search-bar {
-   margin-top: 24px;
-   color: rgb(226, 226, 226);
-   font-family: "Russo", sans-serif;
-   width: 555px;
- }
+.search-bar {
+  margin-top: 24px;
+  color: rgb(226, 226, 226);
+  font-family: "Russo", sans-serif;
+  width: 555px;
+}
 
 .align-navbar {
   flex: 1;
@@ -31,15 +34,11 @@
 
 .profile-button {
   margin-left: 40px;
-  margin-right:20px;
+  margin-right: 20px;
 }
-
-
-
 
 .icon-text {
   font-size: 500px;
   display: flex;
   align-items: center;
 }
-
