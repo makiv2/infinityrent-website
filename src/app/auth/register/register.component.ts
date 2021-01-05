@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'; //TODO:fix
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class RegisterComponent implements OnInit {
         .subscribe(
             data => {
                 console.log(data)
+                this.router.navigate(['/login'])
             },
             error => {
                 this.error = error;
