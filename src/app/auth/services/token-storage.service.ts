@@ -11,7 +11,8 @@ const USER_KEY = 'auth-user';
 export class TokenStorageService {
 
   public signOut(): void {
-    localStorage.removeItem(TOKEN_KEY); 
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(USER_KEY);  
   }
 
   public saveToken(token: string): void {

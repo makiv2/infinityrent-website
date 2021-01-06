@@ -42,3 +42,50 @@ a {
   display: flex;
   align-items: center;
 }
+
+mdb-icon {
+  font-size: 18px;
+}
+
+.align-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.align-button {
+  width: 35%;
+  border-color: rgb(226, 226, 226);
+  border-style:solid;
+}
+
+.align-login-button {
+  width: 30%;
+  border-color: rgb(226, 226, 226);
+  border-style:solid;
+}
+
+.login-text {
+  margin-left: 10px;
+}
+
+.signup-text {
+  margin-left: 12px;
+}
+
+.align-buttons {
+  margin-left: 22px;
+}
+
+.dropdown-buttons {
+  background-color: #161b22;
+  color: white;
+}
+
+.dropdown-buttons:hover {
+  background-color:  #457b9d;
+}
+
+::ng-deep .mat-menu-panel{
+  background-color:#161b22;
+}

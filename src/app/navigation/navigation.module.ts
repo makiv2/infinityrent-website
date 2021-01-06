@@ -5,9 +5,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { WavesModule, InputsModule, ButtonsModule } from 'angular-bootstrap-md'
-import { FormsModule } from '@angular/forms'
+import { WavesModule, InputsModule, ButtonsModule, IconsModule } from 'angular-bootstrap-md';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 @NgModule({
@@ -22,7 +24,10 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    IconsModule,
+    MatToolbarModule,
+    MatMenuModule
+    
   ],
   exports: [NavbarComponent]
 })
