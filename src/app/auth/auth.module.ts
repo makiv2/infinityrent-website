@@ -7,6 +7,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { CheckboxModule, WavesModule, ButtonsModule, InputsModule, IconsModule, CardsModule } from 'angular-bootstrap-md'
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
@@ -17,7 +18,13 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    CheckboxModule,
+    WavesModule,
+    ButtonsModule,
+    InputsModule,
+    IconsModule,
+    CardsModule
   ],
 })
 export class AuthModule {}
