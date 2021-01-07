@@ -1,48 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { TokenStorageService } from '../services/token-storage.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoginData } from './login-data';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  form: any = {
-    username: null,
-    password: null
-  };
-  isLoggedIn = false;
-  isLoginFailed = false;
+  loginForm: FormGroup;
   errorMessage = '';
-  roles: string[] = [];
 
-  constructor(private authService: AuthService,private router: Router, private tokenStorageService: TokenStorageService) { }
-
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private tokenStorageService: TokenStorageService
+  ) {}
 
   ngOnInit(): void {
-    if (this.tokenStorageService.getToken()) {
-      this.isLoggedIn = true;
-      this.roles = this.tokenStorageService.getUser().roles;
-    }
+    this.loginForm = new FormGroup({
+      username: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
+    });
   }
 
   onSubmit(): void {
-    const { username, password } = this.form;
+    if(!this.loginForm.valid)
+      return;
 
-    this.authService.login(username, password).subscribe(
-      data => {
+    this.authService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe(
+      (data) => {
         this.tokenStorageService.saveToken(data.token);
         this.tokenStorageService.saveUser(data);
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.roles = this.tokenStorageService.getUser().roles;
-        this.router.navigate([''])
+        this.router.navigate(['']);
       },
-      err => {
+      (err) => {
         this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
       }
     );
   }
