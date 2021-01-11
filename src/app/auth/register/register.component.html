@@ -1,111 +1,154 @@
-<div class="container-fluid register-container">
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <section class="form-elegant">
-          <mdb-card class="register-card z-depth-2">
-            <form
-              [formGroup]="registerForm"
-              (ngSubmit)="onSubmit()"
-              class="text-center p-5"
+<div class="container register-container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 align-stuff">
+      <section class="form-elegant">
+        <mdb-card class="register-card z-depth-2">
+          <form
+            [formGroup]="registerForm"
+            (ngSubmit)="onSubmit()"
+            class="text-center p-5"
+          >
+            <p class="h4 mb-4 text-design">
+              <img src="/assets/img/registerlogo.png" alt="" />
+            </p>
+
+            <div class="row">
+              <div class="col-md-6 register-username-email">
+                <mat-form-field appearance="outline" class="form-field">
+                  <mat-label class="form-label">Username</mat-label>
+                  <input matInput formControlName="username" required />
+                  <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 register-username-email">
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label class="form-label">Email</mat-label>
+                  <input matInput formControlName="email" required />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 register-password">
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label class="form-label">Password</mat-label>
+                  <input matInput formControlName="password" required />
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 register-password">
+                <mat-form-field class="form-field" appearance="outline">
+                  <mat-label class="form-label">Confirm password</mat-label>
+                  <input matInput formControlName="confirmPassword" required />
+                </mat-form-field>
+              </div>
+            </div>
+            <div
+              *ngIf="username.invalid && username.touched"
             >
-            
-              <p class="h4 mb-4 text-design">
-                <img src="/assets/img/registerlogo.png" alt="">
-              </p>
-
-              <input
-              mdbInput
-              mdbValidate
-              type="email"
-              id="email"
-              name="email"
-              class="form-control mb-4"
-              placeholder="Email"
-              formControlName="email"
-              required
-            />
-            
-              <input
-                mdbInput
-                mdbValidate
-                type="text"
-                id="username"
-                name="username"
-                class="form-control mb-4"
-                placeholder="Username"
-                formControlName="username"
-                required
-              />
-  
-              <input
-                mdbInput
-                mdbValidate
-                type="password"
-                id="defaultLoginFormPassword"
-                class="form-control mb-4"
-                placeholder="Password"
-                formControlName="password"
-                required
-              />
-              <div class="alert alert-warning" *ngIf="errorMessage" role="alert">
-                {{ errorMessage }}
-              </div>
-  
-              <div class="d-flex justify-content-around">
-              </div>
-  
-              <button
-                mdbBtn
-                color="info"
-                block="true"
-                class="my-4"
-                type="submit"
-                [disabled]="!loginForm.valid"
+              <div
+                class="alert alert-warning"
+                *ngIf="username.errors.minlength"
+                role="alert"
               >
-                Register
-              </button>
-  
-              <p class="text-design">or sign in with:</p>
-  
-              <a type="button" class="light-blue-text mx-2">
-                <mdb-icon fab icon="facebook"></mdb-icon>
-              </a>
-              <a type="button" class="light-blue-text mx-2">
-                <mdb-icon fab icon="twitter"></mdb-icon>
-              </a>
-              <a type="button" class="light-blue-text mx-2">
-                <mdb-icon fab icon="linkedin"></mdb-icon>
-              </a>
-              <a type="button" class="light-blue-text mx-2">
-                <mdb-icon fab icon="github"></mdb-icon>
-              </a>
-            </form>
-          </mdb-card>
-        </section>
-      </div>
-      <div class="col-md-4"></div>
+                Username must be 3 or more characters.
+              </div>
+              <div
+                class="alert alert-warning"
+                *ngIf="username.errors.maxlength"
+                role="alert"
+              >
+                Username must only contain 20 characters or less.
+              </div>
+              <div
+                class="alert alert-warning"
+                *ngIf="username.errors.required"
+                role="alert"
+              >
+                Username is required.
+              </div>
+            </div>
+
+            <div
+              *ngIf="email.invalid && email.touched"
+            >
+              <div
+                class="alert alert-warning"
+                *ngIf="email.errors.email"
+                role="alert"
+              >
+                Email is not valid.
+              </div>
+              <div
+                class="alert alert-warning"
+                *ngIf="email.errors.required"
+                role="alert"
+              >
+                Email is required.
+              </div>
+            </div>
+            <div
+              *ngIf="password.invalid && password.touched"
+            >
+              <div
+                class="alert alert-warning"
+                *ngIf="password.errors.minlength || password.errors.pattern"
+                role="alert"
+              >
+                Password has to be at least 9 characters, 1 numbers and 1
+                capital letter.
+              </div>
+              <div
+                class="alert alert-warning"
+                *ngIf="password.errors.required"
+                role="alert"
+              >
+                Password is required.
+              </div>
+            </div>
+            <div
+              class="alert alert-warning"
+              *ngIf="registerForm.hasError('notSame')"
+              role="alert"
+            >
+              Passwords do not match.
+            </div>
+            
+            <!-- <div class="alert alert-warning" role="alert"></div> -->
+
+            <div class="d-flex justify-content-around"></div>
+
+            <button
+              mdbBtn
+              color="info"
+              block="true"
+              class="my-4"
+              type="submit"
+              [disabled]="!registerForm.valid"
+            >
+              Register
+            </button>
+
+            <p class="text-design">or sign in with:</p>
+
+            <a type="button" class="light-blue-text mx-2">
+              <mdb-icon fab icon="facebook"></mdb-icon>
+            </a>
+            <a type="button" class="light-blue-text mx-2">
+              <mdb-icon fab icon="twitter"></mdb-icon>
+            </a>
+            <a type="button" class="light-blue-text mx-2">
+              <mdb-icon fab icon="linkedin"></mdb-icon>
+            </a>
+            <a type="button" class="light-blue-text mx-2">
+              <mdb-icon fab icon="github"></mdb-icon>
+            </a>
+          </form>
+        </mdb-card>
+      </section>
     </div>
+    <div class="col-md-2"></div>
   </div>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 
 <!-- 
 <h2>Register</h2>
